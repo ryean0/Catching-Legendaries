@@ -20,6 +20,26 @@ This section will involve a few key steps, namely **pre-processing**,
 Before we start, we will import all relevant libraries. Then, we will
 save the Kaggle Pokemon dataset into our variable ‘pokemon’.
 
+``` r
+pokemon <- read.csv('/home/ryan/Documents/Catching-Legendaries/Pokemon.csv')
+head(pokemon)
+```
+
+    ##   X.                  Name Type.1 Type.2 Total HP Attack Defense Sp..Atk
+    ## 1  1             Bulbasaur  Grass Poison   318 45     49      49      65
+    ## 2  2               Ivysaur  Grass Poison   405 60     62      63      80
+    ## 3  3              Venusaur  Grass Poison   525 80     82      83     100
+    ## 4  3 VenusaurMega Venusaur  Grass Poison   625 80    100     123     122
+    ## 5  4            Charmander   Fire          309 39     52      43      60
+    ## 6  5            Charmeleon   Fire          405 58     64      58      80
+    ##   Sp..Def Speed Generation Legendary
+    ## 1      65    45          1     False
+    ## 2      80    60          1     False
+    ## 3     100    80          1     False
+    ## 4     120    80          1     False
+    ## 5      50    65          1     False
+    ## 6      65    80          1     False
+
 For users who want to reference the original dataset, please feel free
 to use the link provided below:  
 <https://www.kaggle.com/mlomuscio/pokemon>
@@ -80,7 +100,7 @@ stat_effect <- train_set %>%
 stat_effect
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](MarkdownDoc_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 ``` r
 sp_effect <- train_set %>%
@@ -89,8 +109,8 @@ sp_effect <- train_set %>%
 sp_effect
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-5-2.png)<!-- --> We can see
-that Legendary Pokemon exist with significantly higher total stat
+![](MarkdownDoc_files/figure-gfm/unnamed-chunk-5-2.png)<!-- --> We can
+see that Legendary Pokemon exist with significantly higher total stat
 points. We go into even more detail by separating out the Special Attack
 and Special Defense points (sp\_stat) to show how significant stat
 points are as a factor in determining a Pokemon’s legendary status.
@@ -104,7 +124,7 @@ gen_effect <- train_set %>%
 gen_effect
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- --> From the
+![](MarkdownDoc_files/figure-gfm/unnamed-chunk-6-1.png)<!-- --> From the
 above barplot, we can see that the number of legendary pokemon are
 relatively constant across all the generations, with notable exceptions
 in only generation 3 and generation 5 with slightly more legendary
@@ -120,8 +140,8 @@ type_effect <- train_set %>%
 type_effect
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- --> From this
-plot, we can see that only the ‘Dragon’ and ‘Psychic’ types have
+![](MarkdownDoc_files/figure-gfm/unnamed-chunk-7-1.png)<!-- --> From
+this plot, we can see that only the ‘Dragon’ and ‘Psychic’ types have
 slightly more number of legendaries. The other types have relatively
 constant numbers of legendaries with some types even having none.
 
@@ -210,8 +230,8 @@ Before I implemented the model on the final test set, I trialed it on
 the smaller train set, train\_b, to fine-tune the code.
 
 ``` r
-model_func(train_b) == 0.959
-model_func(test_set=test_set) == 0.963
+model_func(train_b)
+model_func(test_set=test_set)
 ```
 
 The accuracy from the train\_b set is 0.959, while the accuracy from the
